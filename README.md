@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TalentDuct Recruitment — starter application
 
-## Getting Started
+A Next.js 16 application for a fictional Australian recruitment firm, with a
+floating assistant backed by the Salesforce Agentforce Agent API.
 
-First, run the development server:
+## Quick start
 
 ```bash
+npm install
+cp .env.example .env.local     # then fill in your Salesforce values
+npm run check                  # verifies the connection before you start
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+See **TalentDuct-Installation-and-Deployment** for the full walkthrough,
+including Salesforce setup and Vercel deployment.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Development server on http://localhost:3000 |
+| `npm run check` | Validate `.env.local` and test the Salesforce connection |
+| `npm run build` | Production build |
+| `npm run lint` | ESLint |
 
-## Learn More
+## Where things live
 
-To learn more about Next.js, take a look at the following resources:
+- `lib/site-data.ts` — all page content
+- `lib/sf-auth.ts` — OAuth and the Agent API client (server only)
+- `app/api/agent/*` — the routes the browser calls
+- `components/ChatWidget.tsx` — the floating panel shell
+- `app/globals.css` — design tokens
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Note
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+TalentDuct Recruitment is fictional. Every requisition, recruiter, client and
+figure in `lib/site-data.ts` is invented for teaching purposes.
